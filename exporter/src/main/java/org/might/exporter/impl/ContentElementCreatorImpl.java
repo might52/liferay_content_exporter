@@ -67,7 +67,6 @@ public class ContentElementCreatorImpl implements ContentElementCreator {
             contentLoader.setUpSearchConfiguration(company, PAGE_SIZE);
             fillDocuments(contentLoader.getDocuments(CommonConstant.LOCALE_EN));
             fillStructuredContent(contentLoader.getStructuredContents(CommonConstant.LOCALE_EN), CommonConstant.LOCALE_EN);
-            fillStructuredContent(contentLoader.getStructuredContents(CommonConstant.LOCALE_HU), CommonConstant.LOCALE_HU);
             LOGGER.info(FINISH_GENERATE_ROOT);
             return root;
         } catch (Exception ex) {
@@ -89,10 +88,7 @@ public class ContentElementCreatorImpl implements ContentElementCreator {
                 .orElseGet(() -> {
                     Locales loc = new Locales();
                     loc.setContent(new ArrayList<>());
-                    if (CommonConstant.LOCALE_HU.equals(locale)) {
-                        loc.setLocaleId(CommonConstant.LOCALE_HU);
-                        loc.setLocaleName(CommonConstant.LOCAL_NAME_HU);
-                    } else {
+                    if (CommonConstant.LOCALE_EN.equals(locale)) {
                         loc.setLocaleId(CommonConstant.LOCALE_EN);
                         loc.setLocaleName(CommonConstant.LOCAL_NAME_EN);
                     }
