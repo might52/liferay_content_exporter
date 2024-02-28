@@ -25,7 +25,6 @@ package org.might.exporter.model;
 
 import java.io.Serializable;
 
-
 public class DocumentType implements Serializable {
     private String name;
     private String description;

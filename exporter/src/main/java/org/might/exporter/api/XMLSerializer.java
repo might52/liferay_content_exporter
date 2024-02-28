@@ -23,7 +23,6 @@
  */
 package org.might.exporter.api;
 
-
 import org.might.exporter.model.Root;
 
 import java.io.ByteArrayOutputStream;

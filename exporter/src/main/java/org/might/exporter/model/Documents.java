@@ -28,7 +28,6 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import java.io.Serializable;
 
-
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Documents implements Serializable {
     private String contentUrl;

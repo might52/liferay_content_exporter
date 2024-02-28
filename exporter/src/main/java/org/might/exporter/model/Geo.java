@@ -25,7 +25,6 @@ package org.might.exporter.model;
 
 import java.io.Serializable;
 
-
 public class Geo implements Serializable {
     private Double latitude;
     private Double longitude;

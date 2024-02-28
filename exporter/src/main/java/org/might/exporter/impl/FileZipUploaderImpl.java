@@ -53,7 +53,6 @@ import static java.nio.file.attribute.PosixFilePermission.OWNER_READ;
 import static java.nio.file.attribute.PosixFilePermission.OWNER_WRITE;
 import static java.util.Optional.ofNullable;
 
-
 @Component(immediate = true, service = Uploader.class)
 public class FileZipUploaderImpl implements Uploader {
 
@@ -133,7 +132,7 @@ public class FileZipUploaderImpl implements Uploader {
      *
      * @param prefixName prefix file name.
      * @return {@link Path} representation of the temp file.
-     * @throws IOException
+     * @throws IOException, UnsupportedOperationException
      */
     private Path getTempFilePath(String prefixName) throws IOException, UnsupportedOperationException {
         return System.getProperty("os.name").toLowerCase().contains("win") ?

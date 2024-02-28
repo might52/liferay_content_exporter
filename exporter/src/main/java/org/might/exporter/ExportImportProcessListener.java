@@ -49,7 +49,6 @@ import java.util.concurrent.CompletableFuture;
 
 import static java.util.Optional.ofNullable;
 
-
 @Component(
         immediate = true,
         service = {ExportImportLifecycleListener.class}

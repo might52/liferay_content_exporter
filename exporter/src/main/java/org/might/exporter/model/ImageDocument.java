@@ -25,7 +25,6 @@ package org.might.exporter.model;
 
 import java.io.Serializable;
 
-
 public class ImageDocument implements Serializable {
     private String contentType;
     private String contentUrl;
