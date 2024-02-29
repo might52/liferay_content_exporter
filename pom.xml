@@ -24,6 +24,7 @@
         <com.liferay.exportimport.service.version>8.0.97</com.liferay.exportimport.service.version>
         <commons-io.version>2.11.0</commons-io.version>
         <com.liferay.portal.impl.version>91.0.0</com.liferay.portal.impl.version>
+        <com.liferay.application.list.version>12.0.3</com.liferay.application.list.version>
         <org.osgi.core.version>6.0.0</org.osgi.core.version>
         <javax.ws.rs-api.version>2.1</javax.ws.rs-api.version>
         <org.osgi.service.http.whiteboard.version>1.0.0</org.osgi.service.http.whiteboard.version>
@@ -34,6 +35,7 @@
         <vulcan.impl.version>5.0.103</vulcan.impl.version>
         <biz.aQute.version>3.2.0</biz.aQute.version>
         <commons-lang3.version>3.11</commons-lang3.version>
+        <portlet-api.version>2.0</portlet-api.version>
         <!-- Test  -->
         <mockito-junit-jupiter.version>4.11.0</mockito-junit-jupiter.version>
         <mockito-core.version>4.11.0</mockito-core.version>
@@ -227,6 +229,18 @@
                 <artifactId>mockito-junit-jupiter</artifactId>
                 <version>${mockito-junit-jupiter.version}</version>
                 <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.liferay</groupId>
+                <artifactId>com.liferay.application.list.api</artifactId>
+                <version>${com.liferay.application.list.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>javax.portlet</groupId>
+                <artifactId>portlet-api</artifactId>
+                <version>${portlet-api.version}</version>
+                <scope>provided</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>

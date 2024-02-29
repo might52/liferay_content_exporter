@@ -1,0 +1,104 @@
+/* Menu section */
+.menuFieldSet {
+    border: 2px #175282 dashed;
+    border-radius: 5px;
+    padding: 20px;
+    color: black;
+    margin: 32px auto;
+}
+
+.menuFieldSetLabel {
+    border: 2px #175282 solid;
+    width: max-content;
+    border-radius: 5px;
+    padding: 7px;
+    color: black;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.messageLabel {
+    color: black;
+    margin: 0 auto 20px;
+    display: block;
+    padding: 10px;
+    border-block: 1px #175282 solid;
+    width: auto;
+}
+
+.message {
+    font-size: 13px;
+}
+
+.valueContainer {
+    display: block;
+    margin: 0 0 auto 0;
+    border: 1px #175282 dashed;
+    border-radius: 2px;
+}
+
+/* Table section */
+.divTable {
+    display: table;
+    width: 100%;
+    border: 1px solid #175282;
+    font-size: 0.9em;
+}
+
+.divTableRow {
+    display: table-row;
+}
+
+.divTableHeading {
+    background-color: #EEE;
+    display: table-header-group;
+    border: 1px solid #175282;
+}
+
+.divTableCell, .divTableHead {
+    display: table-cell;
+    padding: 3px 10px;
+    border: 1px solid #175282;
+}
+
+.divTableHeading {
+    /*background-color: #EEE;*/
+    display: table-header-group;
+    font-weight: bold;
+}
+
+.divTableFoot {
+    /*background-color: #EEE;*/
+    display: table-footer-group;
+    font-weight: bold;
+}
+
+.divTableBody {
+    display: table-row-group;
+}
+
+.pTable {
+    margin: 0;
+}
+
+/* Button section */
+.button {
+    border: 1px #175282 solid;
+    border-radius: 5px;
+    padding: 10px;
+    color: black;
+    font-weight: normal;
+}
+
+.button:hover {
+    background-color: #153156;
+    color: white;
+    cursor: pointer;
+}
+
+.buttonContainer {
+    width: max-content;
+    margin: 0 0 0 auto;
+    display: block;
+    padding: 20px 0 5px 5px;
+}
