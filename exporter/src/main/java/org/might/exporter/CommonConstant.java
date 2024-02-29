@@ -27,4 +27,6 @@ public class CommonConstant {
     public static final String KEYWORD = "assetTagNames.raw";
     public static final String LOCALE_EN = "en-US";
     public static final String LOCAL_NAME_EN = "English";
+    public static final String KEYWORDS_PROPERTIES = "exporter.keywords";
+    public static final String OUTBOUND_FOLDER_PROPERTIES = "outbound.folder.path";
 }

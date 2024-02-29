@@ -24,6 +24,7 @@
 package org.might.exporter.impl;
 
 import com.liferay.portal.kernel.util.PrefsPropsUtil;
+import org.might.exporter.CommonConstant;
 import org.might.exporter.api.ContentConfiguration;
 import org.osgi.service.component.annotations.Component;
 
@@ -32,11 +33,11 @@ public class ContentConfigurationImpl implements ContentConfiguration {
 
     @Override
     public String getExportFolder() {
-        return PrefsPropsUtil.getString("");
+        return PrefsPropsUtil.getString(CommonConstant.OUTBOUND_FOLDER_PROPERTIES);
     }
 
     @Override
     public String getFilterKeywords() {
-        return PrefsPropsUtil.getString("");
+        return PrefsPropsUtil.getString(CommonConstant.KEYWORDS_PROPERTIES);
     }
 }
