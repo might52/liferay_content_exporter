@@ -33,19 +33,13 @@ import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.PropsUtil;
 import com.liferay.portal.kernel.util.StringUtil;
 import org.apache.commons.collections4.CollectionUtils;
-import org.might.exporter.api.ContentElementCreator;
-import org.might.exporter.api.Uploader;
-import org.might.exporter.api.XMLSerializer;
-import org.might.exporter.model.Root;
+import org.might.exporter.api.ContentExporter;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.ByteArrayOutputStream;
 import java.util.Arrays;
-import java.util.Objects;
-import java.util.concurrent.CompletableFuture;
 
 import static java.util.Optional.ofNullable;
 
@@ -57,21 +51,13 @@ public class ExportImportProcessListener implements ProcessAwareExportImportLife
     private static final Logger LOGGER = LoggerFactory.getLogger(ExportImportProcessListener.class);
     private static final String SUCCESS_IMPORT_LAR = "Lar successfully {}. GroupId from event: {}, from company: {}";
     private static final String GLOBAL_SUCCESS_IMPORT_LAR = "Global " + SUCCESS_IMPORT_LAR;
-    private static final String START_EXPORT = "Start export process";
-    private static final String STOP_EXPORT = "Stop export process";
     private static final String MAP_FIELD = "cmd";
     private static final String IMPORT_TYPE_CMD = "[import]";
     private static final String IMPORT_TYPE = "imported";
     private static final String EXPORT_TYPE = "exported";
 
     @Reference
-    private Uploader fileUploader;
-
-    @Reference
-    private ContentElementCreator contentElementCreator;
-
-    @Reference
-    private XMLSerializer xmlSerializer;
+    private ContentExporter contentExporter;
 
     public ExportImportProcessListener() {
     }
@@ -108,23 +94,7 @@ public class ExportImportProcessListener implements ProcessAwareExportImportLife
                             isImport ? IMPORT_TYPE : EXPORT_TYPE,
                             eventGroupId,
                             companyGroupId);
-                    CompletableFuture.runAsync(() -> {
-                        LOGGER.info(START_EXPORT);
-                        Root rootContent = contentElementCreator.getRootContent(company);
-                        ByteArrayOutputStream stream = null;
-                        if (Objects.nonNull(rootContent)) {
-                            stream = xmlSerializer.getXmlStream(rootContent);
-                        }
-
-                        fileUploader.uploadFile(stream);
-                        try {
-                            if (stream != null) {
-                                stream.close();
-                            }
-                        } catch (Exception ignored) {
-                        }
-                        LOGGER.info(STOP_EXPORT);
-                    });
+                    contentExporter.export(company);
                 });
     }
 
