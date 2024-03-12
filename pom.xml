@@ -13,6 +13,7 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <place.to.copy.after.build>${deploy.environment.path}</place.to.copy.after.build>
         <!-- Dependencies -->
         <checkstyle.plugin.version>2.17</checkstyle.plugin.version>
         <headless.delivery.api.version>49.0.0</headless.delivery.api.version>
@@ -105,6 +106,53 @@
                     </dependency>
                 </dependencies>
             </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.8</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <taskdef resource="net/sf/antcontrib/antcontrib.properties"/>
+                                <if>
+                                    <not>
+                                        <equals arg1="${project.artifactId}" arg2="liferay_content_exporter"/>
+                                    </not>
+                                    <then>
+                                        <if>
+                                            <equals arg1="${project.packaging}" arg2="jar"/>
+                                            <then>
+                                                <copy file="target/${project.build.finalName}.${project.packaging}"
+                                                      tofile="${place.to.copy.after.build}/${project.build.finalName}.${project.packaging}"/>
+                                            </then>
+                                        </if>
+                                    </then>
+                                </if>
+                            </target>
+                        </configuration>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>ant-contrib</groupId>
+                        <artifactId>ant-contrib</artifactId>
+                        <version>1.0b3</version>
+                        <exclusions>
+                            <exclusion>
+                                <groupId>ant</groupId>
+                                <artifactId>ant</artifactId>
+                            </exclusion>
+                        </exclusions>
+                    </dependency>
+                </dependencies>
+            </plugin>
+
         </plugins>
     </build>
 
