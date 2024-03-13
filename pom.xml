@@ -13,7 +13,6 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <deploy.environment.path>C:\bundles\liferay-ce-portal-7.4.3.99-ga99\deploy\</deploy.environment.path>
         <place.to.copy.after.build>${deploy.environment.path}</place.to.copy.after.build>
         <!-- Dependencies -->
         <checkstyle.plugin.version>2.17</checkstyle.plugin.version>
