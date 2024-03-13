@@ -13,6 +13,7 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <deploy.environment.path>C:\bundles\liferay-ce-portal-7.4.3.99-ga99\deploy\</deploy.environment.path>
         <place.to.copy.after.build>${deploy.environment.path}</place.to.copy.after.build>
         <!-- Dependencies -->
         <checkstyle.plugin.version>2.17</checkstyle.plugin.version>
@@ -22,6 +23,8 @@
         <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
         <com.liferay.portal.kernel.version>126.0.1</com.liferay.portal.kernel.version>
         <org.osgi.service.component.annotations.version>1.4.0</org.osgi.service.component.annotations.version>
+        <com.liferay.osgi.service.tracker.collections.version>8.0.1
+        </com.liferay.osgi.service.tracker.collections.version>
         <com.liferay.exportimport.service.version>8.0.97</com.liferay.exportimport.service.version>
         <commons-io.version>2.11.0</commons-io.version>
         <com.liferay.portal.impl.version>91.0.0</com.liferay.portal.impl.version>
@@ -37,6 +40,7 @@
         <biz.aQute.version>3.2.0</biz.aQute.version>
         <commons-lang3.version>3.11</commons-lang3.version>
         <portlet-api.version>2.0</portlet-api.version>
+        <com.liferay.petra.string.version>5.3.2</com.liferay.petra.string.version>
         <!-- Test  -->
         <mockito-junit-jupiter.version>4.11.0</mockito-junit-jupiter.version>
         <mockito-core.version>4.11.0</mockito-core.version>
@@ -162,6 +166,12 @@
                 <groupId>org.osgi</groupId>
                 <artifactId>org.osgi.service.component.annotations</artifactId>
                 <version>${org.osgi.service.component.annotations.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.liferay</groupId>
+                <artifactId>com.liferay.osgi.service.tracker.collections</artifactId>
+                <version>${com.liferay.osgi.service.tracker.collections.version}</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>
